@@ -1,5 +1,23 @@
 function createTreeOl(arrIn) {
 
+    // function createUl(arr){
+    //     li = document.createElement('li');
+    //     ol.append(li);
+    //     let ul = document.createElement(`ul`);
+    //     li.append(ul);
+    //     for (let elem of arr) {
+    //         if (typeof(elem) !== "object") {
+    //         let li = document.createElement('li');
+    //         ul.append(li);
+    //         li.append(elem);}
+    //          if (typeof(elem) == "object"){
+                
+    //              createUl(elem)
+    //             };
+        
+
+    //         };
+    //     };
     let ol = document.createElement(`ol`);
 
     body.append(ol);
@@ -10,56 +28,70 @@ function createTreeOl(arrIn) {
             ol.append(li);
             li.append(elem);
         };
-        if (typeof(elem) == "object") {
-            let arr = elem;
-            let li = document.createElement('li');
-            ol.append(li);
-            let ul = document.createElement(`ul`);
-            li.append(ul);
-            for (let elem of arr) {
-                let li = document.createElement('li');
-                ul.append(li);
-                li.append(elem);
-
-
+          if (typeof(elem) == "object") {
+            let arr=elem;
+              li = document.createElement('li');
+              ol.append(li);
+              let ul = document.createElement(`ul`);
+              li.append(ul);
+              for (let elem of arr) {
+                  
+                  if (typeof(elem) !== "object") {
+                  li = document.createElement('li');
+                  ul.append(li);
+                  li.append(elem);}
+                   if (typeof(elem) == "object"){
+                      
+                    let arr=elem;
+                    li = document.createElement('li');
+                    ol.append(li);
+                    let ul = document.createElement(`ul`);
+                    li.append(ul);
+                    for (let elem of arr) {
+                        
+                        if (typeof(elem) !== "object") {
+                        li = document.createElement('li');
+                        ul.append(li);
+                        li.append(elem);}
+                         if (typeof(elem) == "object"){
+                            
+                             createUl(elem)
+                            };}
+                      };
+              
+      
+                  };
+             
             };
-        };
     };
+    setTimeout(() => ol.remove(), 11000);
 };
 
 
 
-function showNotification({ className, html }) {
+function showTimer({ className, html }) {
 
-    let notification = document.createElement('div');
-    notification.className = "notification";
-    notification.innerHTML = html;
-    document.body.append(notification);
+    let timer = document.createElement('div');
+    timer.className = "timer";
+    timer.innerHTML = 'time to remove: ' + i-- ;
+    document.body.append(timer);
+    
 
-    setTimeout(() => notification.remove(), 1000);
+    setTimeout(() => timer.remove(), 1000);
+    
+    
 
 }
 
-
-// let i = 9;
-
-// setInterval(() => {
-//     showNotification({
-//         // top: 10,
-//         // right: 10,
-
-//         html: 'time to remove: ' + i--,
-//         className: "timer",
-//     });
-//     // clearInterval(i == 0);
-// }, 1000);
+let i = 10;
+let timerId = setInterval(() => {showTimer({});},1000 );
 
 
+setTimeout(() => clearInterval(timerId), 11000);
 
+ 
 
-
-
-// setTimeout(() => ol.remove(), 10000);
+ 
 
 
 
