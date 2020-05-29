@@ -1,5 +1,5 @@
 function createTreeOl(arrIn) {
-
+    // array.map(element => <li>element.name</li>)
 
     let ol = document.createElement(`ol`);
 
@@ -52,5 +52,5 @@ let timerId = setInterval(() => { showTimer({}); }, 1000);
 
 setTimeout(() => clearInterval(timerId), 11000);
 
-let arrForExample = ['hello', 'world', 'Kiev', ['wwww', ['wwww', 'errere', 'rtrtr'], 'errere', 'rtrtr'], 'Kharkiv', 'Odessa', 'Lviv'];
+let arrForExample = ['hello', 'world', 'Kiev', ['wwww', 'errere', 'rtrtr'], 'Kharkiv', 'Odessa', 'Lviv'];
 createTreeOl(arrForExample);
