@@ -1,25 +1,33 @@
 // function createTreeOl(arrIn) {
+
+
+// }
+
+let createLi = (arr) => {
+    let ul = document.createElement('ul')
+    ul.innerHTML = arr.map(item, Array.isAray(item) ?
+        () => createLi(item) :
+        () => `<li>${item}</li>`)
+    return result.join(''),
+        document.body.append(ul);
+}
+console.log(createLi);
+
+
 //     let i = 0;
+//     // let li = document.createElement(`li`);
+//     let newArrey = arrIn.map(item => `<li>` + item + `</li>`);
 
-//     let newArrey = arrIn.map(() => `<li>${arrIn[i++]}</li>;`);
-//     console.log(arrIn[2]);
-//     console.log(newArrey);
-
+// container.innerHTML = createTreeText(obj);
 //     let ol = document.createElement(`ol`);
-
 //     body.append(ol);
+//     console.log(typeof(newArrey[4]));
 //     for (let elem of newArrey) {
-//         // li = document.createElement(elem);
-//         ol.append(innerHtml = elem);
-//         function createTree(container, obj) {
-//             container.innerHTML = createTreeText(obj);
-//           }
-
-
-
-
-
-
+//         // li.innerHtml = elem;
+//         ol.append(elem);
+//     }
+// } //     function createTree(container, obj) {
+// //   
 
 
 // };
@@ -51,30 +59,30 @@
 // div.className = 'container'
 // body.append(div); createTreeText(elem) +
 let arrForExample = ['hello', 'world', 'Kiev', ['wwww', ['wwww', 'errere', 'rtrtr'], 'errere', 'rtrtr'], 'Kharkiv', 'Odessa', 'Lviv'];
-
-function createTree(container, arr) {
-    container.innerHTML = createTreeText(arr);
-}
-
-
-function createTreeText(arr) {
-    let li = '';
-    let ul;
-    let i = 0;
-    for (let elem of arr) {
-        li += '<li>' + elem + createTreeText(arr[i++]) + '</li>';
-    }
-    if (li) {
-        ul = '<ul>' + li + '</ul>'
-    }
-    return ul || '';
-}
-
-createTree(container, arrForExample);
+createLi(arrForExample);
+// function createTree(container, arr) {
+//     container.innerHTML = createTreeText(arr);
+// }
 
 
+// function createTreeText(arr) {
+//     let li = '';
+//     let ul;
+//     let i = 0;
+//     for (let elem of arr) {
+//         li += '<li>' + elem + createTreeText(arr[i++]) + '</li>';
+//     }
+//     if (li) {
+//         ul = '<ul>' + li + '</ul>'
+//     }
+//     return ul || '';
+// }
 
-function showTimer({ className, html }) {
+// createTree(container, arrForExample);
+
+
+
+function showTimer() {
     let timer = document.createElement('div');
     timer.className = "timer";
     timer.innerHTML = 'time to remove: ' + i--;
