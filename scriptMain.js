@@ -1,15 +1,26 @@
 // function createTreeOl(arrIn) {
 
-
+// item => (typeof(item) == 'object') ?
+// () => createLi(item) :
+// () => `<li>` + item + `</li>`
 // }
 
 let createLi = (arr) => {
     let ul = document.createElement('ul')
-    ul.innerHTML = arr.map(item, Array.isAray(item) ?
-        () => createLi(item) :
-        () => `<li>${item}</li>`)
-    return result.join(''),
-        document.body.append(ul);
+
+    console.log(typeof(arr));
+    ul.innerHTML = arr.map(function(item) {
+        if (typeof(item) == 'object') {
+
+            return createLi(item);
+
+        } else {
+
+            return `<li>` + item + `</li>`
+        };
+    }).join('');
+    console.log(ul);
+    document.body.append(ul);
 }
 console.log(createLi);
 
@@ -60,6 +71,7 @@ console.log(createLi);
 // body.append(div); createTreeText(elem) +
 let arrForExample = ['hello', 'world', 'Kiev', ['wwww', ['wwww', 'errere', 'rtrtr'], 'errere', 'rtrtr'], 'Kharkiv', 'Odessa', 'Lviv'];
 createLi(arrForExample);
+console.log(arrForExample);
 // function createTree(container, arr) {
 //     container.innerHTML = createTreeText(arr);
 // }
